@@ -11,7 +11,6 @@
         android:id="@+id/statustext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spieler X ist dran"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,35 +35,26 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
+            <Button
                 android:id="@+id/field0"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginRight="4dp"
                 android:layout_weight="1"
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:textSize="36sp" />
+                android:textSize="30sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/field1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:textSize="36sp" />
+                android:textSize="30sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/field2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
                 android:layout_weight="1"
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:textSize="36sp" />
-
+                android:textSize="30sp" />
         </TableRow>
 
         <TableRow
@@ -72,40 +62,26 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
+            <Button
                 android:id="@+id/field3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="4dp"
                 android:layout_weight="1"
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:textSize="36sp" />
+                android:textSize="30sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/field4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
                 android:layout_weight="1"
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:textSize="36sp" />
+                android:textSize="30sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/field5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
                 android:layout_weight="1"
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:textSize="36sp" />
+                android:textSize="30sp" />
         </TableRow>
 
         <TableRow
@@ -113,36 +89,36 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TextView
+            <Button
                 android:id="@+id/field6"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginRight="4dp"
                 android:layout_weight="1"
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:textSize="36sp" />
+                android:textSize="30sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/field7"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:textSize="36sp" />
+                android:textSize="30sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/field8"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
                 android:layout_weight="1"
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:textSize="36sp" />
+                android:textSize="30sp" />
         </TableRow>
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reset"
+        tools:layout_editor_absoluteX="295dp"
+        tools:layout_editor_absoluteY="63dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
