@@ -1,6 +1,7 @@
 package com.example.tictactoe
 
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -12,17 +13,16 @@ class MainActivity : AppCompatActivity() {
 
     var count = 0
     val currSymbol = { if (count % 2 == 0) "X" else "O" }
+    var setStatusText = { statustext.text = "Spieler ${currSymbol()} ist dran" }
+    var originalColor: Drawable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        originalColor = field0.background
 
-        fun setStatusText() {
-            statustext.text = "Spieler ${currSymbol()} ist dran"
-        }
-
-        val originalColor = field0.background
-        val allFields = arrayListOf<TextView>(
+        val allFields = arrayListOf<Button>(
             field0,
             field1,
             field3,
@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             field7,
             field8
         )
+        
         allFields.forEach { field ->
             field.setOnClickListener {
                 if (field.text.isEmpty()) {
@@ -41,7 +42,6 @@ class MainActivity : AppCompatActivity() {
                         field.setBackgroundColor(Color.GREEN)
                     else
                         field.setBackgroundColor(Color.BLUE)
-
 
                     if (hasWon()) {
                         Toast.makeText(
@@ -53,11 +53,15 @@ class MainActivity : AppCompatActivity() {
                     }
                     count++
                     setStatusText()
-
                 }
             }
         }
 
+        reset(allFields)
+
+    }
+
+    fun reset(allFields: ArrayList<Button>) {
         reset.setOnClickListener {
             allFields.forEach { field -> field.text = "" }
             count = 0
@@ -68,7 +72,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-
     }
 
     fun checkIfThreeSame(f0: Button, f1: Button, f2: Button): Boolean {
