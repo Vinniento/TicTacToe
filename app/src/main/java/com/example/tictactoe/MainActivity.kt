@@ -11,14 +11,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     var count = 0
-    val setSymbol = { if (count % 2 == 0) "X" else "O" }
+    val currSymbol = { if (count % 2 == 0) "X" else "O" }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         fun setStatusText() {
-            statustext.text = "Spieler ${setSymbol()} ist dran"
+            statustext.text = "Spieler ${currSymbol()} ist dran"
         }
 
         val originalColor = field0.background
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         allFields.forEach { field ->
             field.setOnClickListener {
                 if (field.text.isEmpty()) {
-                    field.text = setSymbol().capitalize()
+                    field.text = currSymbol().capitalize()
                     if (field.text == "X")
                         field.setBackgroundColor(Color.GREEN)
                     else
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                     if (hasWon()) {
                         Toast.makeText(
                             this,
-                            "winner is player ${setSymbol()} after ${count + 1} rounds",
+                            "winner is player ${currSymbol()} after ${count + 1} rounds",
                             Toast.LENGTH_LONG
                         ).show()
                         allFields.forEach { field -> field.isClickable = false }
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun checkIfThreeSame(f0: Button, f1: Button, f2: Button): Boolean {
-        var currSymbol = setSymbol()
+        var currSymbol = currSymbol()
         return (f0.text == currSymbol && f1.text == currSymbol && f2.text == currSymbol)
     }
 
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                 checkIfThreeSame(field3, field5, field8) ||
                 //diag
                 checkIfThreeSame(field0, field4, field8) ||
-                checkIfThreeSame(field3, field4, field6))
+                checkIfThreeSame(field2, field4, field6))
 
 
     }
