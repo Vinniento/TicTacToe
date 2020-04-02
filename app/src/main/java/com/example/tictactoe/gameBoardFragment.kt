@@ -25,7 +25,9 @@ class gameBoardFragment : Fragment() {
     //lateinit var  mp: MediaPlayer
     var mp: MediaPlayer? = null
 fun getCurrentPlayer():String{
-    return if(currSymbol.equals("X")) player1_name_textview.text.toString() else player2_name_textview.text.toString()
+
+    return if(currSymbol().equals("X")) player1_name_textview.text.toString() else player2_name_textview.text.toString()
+
 }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -82,7 +84,7 @@ fun getCurrentPlayer():String{
                 allFields.forEach { field -> field.isClickable = false }
                 mp = MediaPlayer.create(this.context, R.raw.firework_finish )
                 mp?.start()
-            } else if (allFields.all { field.text != "" })
+            } else if (allFields.all { field.text != "" } && count > 8)
                 Toast.makeText(this.context, "Unentschieden", Toast.LENGTH_LONG).show()
             count++
             setStatusText()
