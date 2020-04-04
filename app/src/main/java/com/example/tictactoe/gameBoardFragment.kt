@@ -84,7 +84,7 @@ fun getCurrentPlayer():String{
                 allFields.forEach { field -> field.isClickable = false }
                 mp = MediaPlayer.create(this.context, R.raw.firework_finish )
                 mp?.start()
-            } else if (allFields.all { field.text != "" } && count > 8)
+            } else if (allFields.all { field.text != "" } && count > 7)
                 Toast.makeText(this.context, "Unentschieden", Toast.LENGTH_LONG).show()
             count++
             setStatusText()
